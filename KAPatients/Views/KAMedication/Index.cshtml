@@ -1,0 +1,75 @@
+﻿@model IEnumerable<KAPatients.Models.Medication>
+
+@{
+    ViewData["Title"] = $"List of Medication for '{@ViewBag.session}'";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h1>List of Medication for '@ViewBag.session'</h1>
+
+
+<p>
+    <a asp-action="Create" asp-route-id="@ViewBag.Session">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Din)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Concentration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConcentrationCodeNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DispensingCodeNavigation)
+            </th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.MedicationType)
+        </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Din)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Concentration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConcentrationCodeNavigation.ConcentrationCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DispensingCodeNavigation.DispensingCode)
+            </td>
+            @*<td>
+            @Html.DisplayFor(modelItem => item.MedicationType.Name)
+        </td>*@
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Din">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Din">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Din">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

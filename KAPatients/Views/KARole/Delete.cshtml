@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
+@using Microsoft.AspNetCore.Identity
+
+@{
+    ViewData["Title"] = $"Confirm Delete of Role '{TempData["roleToBeDeleted"]}'";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h1>Confirm Delete of Role '@TempData["roleToBeDeleted"]' </h1>
+<h2>Users in role</h2>
+@foreach (var item in Model)
+{
+
+    <tr>
+        
+            @Html.DisplayFor(modelItem => item.UserName) <br>
+        
+    </tr>
+}
+
+
+
+
+
+@*<div>
+    <h4></h4>
+    <hr />*@
+
+
+@*<dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+
+    </dl>*@
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for:"Name" />
+    <input type="submit" value="Delete Confirmed" />
+    
+    <input type="button" value="Cancel Delete" onclick="location.href='@Url.Action("Index","KARole")';" />
+
+</form>
+
+<a asp-action="Index">Return to Role List</a>

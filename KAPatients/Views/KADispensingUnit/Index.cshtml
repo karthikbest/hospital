@@ -1,0 +1,30 @@
+﻿@model IEnumerable<KAPatients.Models.DispensingUnit>
+
+@{
+    ViewData["Title"] = "List of Dispensing Units";
+}
+
+    <h1>List of Dispensing Units</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Dispensing Code</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>@item.DispensingCode</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DispensingCode">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.DispensingCode">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.DispensingCode">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

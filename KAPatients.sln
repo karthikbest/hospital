@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KAPatients", "KAPatients\KAPatients.csproj", "{114A6FA9-400E-4D74-B140-1C43FD692D3D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KAClassLibrary", "KAClassLibrary\KAClassLibrary.csproj", "{7BECC11B-093E-48DD-8BB7-F327B6299A9C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{114A6FA9-400E-4D74-B140-1C43FD692D3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{114A6FA9-400E-4D74-B140-1C43FD692D3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{114A6FA9-400E-4D74-B140-1C43FD692D3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{114A6FA9-400E-4D74-B140-1C43FD692D3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BECC11B-093E-48DD-8BB7-F327B6299A9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BECC11B-093E-48DD-8BB7-F327B6299A9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BECC11B-093E-48DD-8BB7-F327B6299A9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BECC11B-093E-48DD-8BB7-F327B6299A9C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9A535E16-2E0E-4ABA-BE51-A92457E0831F}
+	EndGlobalSection
+EndGlobal

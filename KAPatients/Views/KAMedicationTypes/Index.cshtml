@@ -1,0 +1,37 @@
+﻿@model IEnumerable<KAPatients.Models.MedicationType>
+
+@{
+    ViewData["Title"] = "List of Medication type";
+}
+<p class="alert-danger">@TempData["message"]</p>
+    <h1>List of Medication type</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <a asp-controller="KAMedication" asp-action="index" asp-route-id="@item.MedicationTypeId" asp-route-name="@item.Name">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </a>
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MedicationTypeId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MedicationTypeId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MedicationTypeId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

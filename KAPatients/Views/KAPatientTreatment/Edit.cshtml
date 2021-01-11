@@ -1,0 +1,53 @@
+﻿@model KAPatients.Models.PatientTreatment
+@using Microsoft.AspNetCore.Http
+
+@{
+    ViewData["Title"] = $"Edit Details of Treatment for {Context.Session.GetString("sessionDName")}, Patient: {Context.Session.GetString("sessionPName")}";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h1>Edit Details of Treatment for @Context.Session.GetString("sessionDName"), Patient: @Context.Session.GetString("sessionPName")</h1>
+
+<h4>PatientTreatment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PatientTreatmentId" />
+            <div class="form-group">
+                <label class="control-label">Treatment Name</label>
+                <select asp-for="TreatmentId" class="form-control" asp-items="ViewBag.TreatmentId"></select>
+                <span asp-validation-for="TreatmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">    
+                <label asp-for="DatePrescribed" class="control-label"></label>
+                <input asp-for="DatePrescribed" class="form-control" readonly />
+                <span asp-validation-for="DatePrescribed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Comments" class="control-label"></label>
+                @*<input asp-for="Comments" class="form-control" />*@
+                <textarea rows="3" asp-for="Comments" cols="50"> </textarea>
+                <span asp-validation-for="Comments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="PatientDiagnosisId" class="control-label"></label>
+                    <select asp-for="PatientDiagnosisId" class="form-control" asp-items="ViewBag.PatientDiagnosisId"></select>*@
+                <input type="hidden" asp-for="PatientDiagnosisId" value="@Context.Session.GetString("sessionId")" />
+                <span asp-validation-for="PatientDiagnosisId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

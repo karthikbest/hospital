@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
+@using Microsoft.AspNetCore.Identity
+
+@*@model ViewModels.CreateRoleViewModel*@
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-danger">@TempData["message"]</h2>
+<h2 class="alert-danger">@TempData["errorMessage"]</h2>
+
+<h1>Current Roles</h1>
+
+
+
+<div>
+
+    <form asp-action="index" method="post">
+
+        <div class="form-group">
+
+            <label style="display:inline">Create new role</label>
+            <input style="display:inline;width:200px;" type="text" name="role">
+            <input type="submit" value="Create Role" style="display:inline" />
+        </div>
+
+
+
+    </form>
+
+    <table class="table">
+        <thead>
+
+
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+
+
+                        <a asp-action="index" asp-controller="KAUsers" asp-route-roleName="@item.Name">Users in Role</a> |
+
+
+                        @if (!(item.Name.ToLower() == "administrators"))
+                        {
+                            <a asp-action="Delete" asp-controller="KARole" asp-route-id="@item.Name">Delete Role</a>
+
+
+                        }
+
+
+
+
+
+
+
+
+
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+
+</div>

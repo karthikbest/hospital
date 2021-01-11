@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
+@{
+    ViewData["Title"] = $"Users in Role '{TempData["role"]}'";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<h1>Users in Role '@TempData["role"]' </h1>
+<h2 class="alert-info">@TempData["message"]</h2>
+<h2 class="alert-danger">@TempData["errorMessage"]</h2>
+
+
+<form asp-action="KAUsers/Index" method="post">
+    <div class="form-group">
+        <label class="control-label" style="display:inline">Users not in role: </label>
+        <select name="Id" class="form-control" asp-items="ViewBag.Id" style="display:inline;width:200px;"></select>
+        <input name="value" type="hidden" value="model.Id" />
+        <input type="submit" style="display:inline" value="Add to Role" />
+        <span class="text-danger"></span>
+    </div>
+</form>
+
+<p>
+    <a asp-action="Create">Create New</a>
+    @*<a asp-action="Delete">Delete All</a>*@
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+
+
+         
+
+            <td>
+                <a asp-action="delete" asp-route-id="@item.Id">Remove</a>
+            </td>
+
+            
+        </tr>
+        }
+    </tbody>
+</table>

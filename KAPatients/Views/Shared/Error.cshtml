@@ -1,0 +1,15 @@
+﻿@model KAPatients.Models.ConcentrationUnit
+
+@{
+    ViewData["Title"] = "Error-Unable to delete";
+}
+
+
+<h1>Sorry, You cannot delete this  @ViewBag.ErrorItem </h1>
+
+Because, this data is being referenced by @ViewBag.ReferencingTable .<br />
+
+Hence In order to delete this, First You need to delete the referencing data in @ViewBag.ReferencingTable
+<br>
+
+
